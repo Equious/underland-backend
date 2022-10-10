@@ -17,6 +17,11 @@ const networkConfig = {
         name: "goerli",
         mintFee: "10000000000000000", // 0.01 ETH
     },
+
+    1: {
+        name: "mainnet",
+        mintFee: "10000000000000000", // 0.01 ETH
+    },
 }
 
 const DECIMALS = "18"

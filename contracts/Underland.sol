@@ -339,7 +339,7 @@ contract Underland is ERC721URIStorage, Ownable {
         return s_tokenCounter;
     }
 
-    function getTokenArray() public view returns (uint8[] memory) {
-        return tokenArray;
+    function getTokenArray() public view returns (uint256) {
+        return tokenArray.length;
     }
 }

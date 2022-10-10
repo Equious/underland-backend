@@ -50,6 +50,12 @@ module.exports = {
             chainId: 5,
             blockConfirmations: 6,
         },
+        goerli: {
+            url: MAINNET_RPC_URL,
+            accounts: [PRIVATE_KEY],
+            chainId: 1,
+            blockConfirmations: 6,
+        },
     },
     gasReporter: {
         enabled: false,
@@ -82,6 +88,7 @@ module.exports = {
             rinkeby: ETHERSCAN_API_KEY,
             mumbai: MUMBAI_API_KEY,
             goerli: GOERLI_API_KEY,
+            mainnet: ETHERSCAN_API_KEY,
         },
     },
 }
