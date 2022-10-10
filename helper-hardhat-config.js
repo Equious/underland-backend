@@ -12,11 +12,16 @@ const networkConfig = {
         name: "mumbai",
         mintFee: "10000000000000000", // 0.01 ETH
     },
+
+    5: {
+        name: "goerli",
+        mintFee: "10000000000000000", // 0.01 ETH
+    },
 }
 
 const DECIMALS = "18"
 const INITIAL_PRICE = "200000000000000000000"
-const developmentChains = ["hardhat", "localhost"]
+const developmentChains = ["hardhat", "localhost", "mumbai", "goerli"]
 
 module.exports = {
     networkConfig,

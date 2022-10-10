@@ -9,6 +9,7 @@ error RandomIpfsNft__RangeOutOfBounds();
 error RandomIpfsNft__NeedMoreEth();
 error RandomIpfsNft__TransferFailed();
 error Underland__NoTokensLeft();
+error Underland__WithdrawFailed();
 
 contract Underland is ERC721URIStorage, Ownable {
     //NFT Variables
@@ -320,6 +321,13 @@ contract Underland is ERC721URIStorage, Ownable {
             emit NftMint(currentTokenUri, msg.sender);
         } else {
             revert Underland__NoTokensLeft();
+        }
+    }
+
+    function withdraw() public payable onlyOwner {
+        (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
+        if (!success) {
+            revert Underland__WithdrawFailed();
         }
     }
 
