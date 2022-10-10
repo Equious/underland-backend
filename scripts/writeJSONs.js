@@ -11,30 +11,58 @@ async function handleTokenUris() {
         attributes: [],
     }
 
-    let themeFolders = [
-        "ipfs://QmNTm3x4HnxDdoDsYgYor46DwdRQPy1TWkMq1CmdkD5you",
-        "ipfs://QmUwvcR4jsm7NRhqLnhPre55diKsejxVq72u4b2CXfymam",
-        "ipfs://QmWq78wNeyUhP73yTDtqWv1U3aVdpiwABRNq5zqDs7A4vm",
-        "ipfs://QmWCtYjGSn8DpMXS496ctxbEWKWnRiSNhDZDn2Ueh5GFko",
-        "ipfs://QmegZApWEL82qAT9NPihLWLYn6qNTRUyrBdRHkkhFnn4rs",
-        "ipfs://QmcXUEFydyo8m56ZkQDZ2nAv4pYiQK2f2D3P3RJJEKFV9A",
-        "ipfs://QmVoYd4qp8n78WkmAuxkEjpkBnp75epYQxyZ8QctMMMwq5",
-        "ipfs://QmcVzZfhbbwSGVXbNkG6rRzBVxEVks6pSkFvBqNt2ZLp2S",
-        "ipfs://QmYsYvnpwNqbHBpvYwj8oonAdP9wDk2RDxFhbgqEAeaJkY",
-        "ipfs://QmNkn5CpuDwFXjDzBkbgPKb3k6jYT2vP55L5zzubhKTL9N",
-    ]
+    let underlandImages = "ipfs://QmZxHQpavbcUDAEaZguKevAFiQtqRLPaivNzVn4mG9tXtb"
     // store the metadata in IPFS
 
-    for (let i = 0; i <= 64; i++) {
+    for (let i = 0; i <= 254; i++) {
         //create metadata
         //upload metadata
         let tokenUriMetadata = { ...metadataTemplate }
-        tokenUriMetadata.name = "Wonders of Underland"
-        tokenUriMetadata.description = `Fantasy and magic can be found all around Underland.`
-        tokenUriMetadata.image = `${themeFolders[9]}/Wonder_${i}.png`
+        if (i <= 19) {
+            tokenUriMetadata.name = "Alice"
+            tokenUriMetadata.description = `The Savior of Underland.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 39) {
+            tokenUriMetadata.name = "Playing Cards"
+            tokenUriMetadata.description = `It's all fun and games until...`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 59) {
+            tokenUriMetadata.name = "Caterpillar"
+            tokenUriMetadata.description = `A mystical guide..`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 79) {
+            tokenUriMetadata.name = "Cheshire"
+            tokenUriMetadata.description = `Friend or foe?`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 104) {
+            tokenUriMetadata.name = "Mad Hatter"
+            tokenUriMetadata.description = `Twisted and brilliant.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 129) {
+            tokenUriMetadata.name = "Rabbit Hole"
+            tokenUriMetadata.description = `The path to Underland.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 149) {
+            tokenUriMetadata.name = "Jabberwocky"
+            tokenUriMetadata.description = `The Scourge of Underland.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 169) {
+            tokenUriMetadata.name = "Dormouse"
+            tokenUriMetadata.description = `Tea with a friend.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 189) {
+            tokenUriMetadata.name = "Red Queen"
+            tokenUriMetadata.description = `Underland's vicious monarch.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        } else if (i <= 254) {
+            tokenUriMetadata.name = "Wonders of Underland"
+            tokenUriMetadata.description = `Fantasy and magic can be found all around Underland.`
+            tokenUriMetadata.image = `${underlandImages}/${i}.png`
+        }
+
         console.log(`Writing ${tokenUriMetadata.name} ${i}...`)
         let jsonData = await JSON.stringify(tokenUriMetadata)
-        fs.writeFileSync(`URIs/WondersOfUnderlandJSONs/Wonder_${i}.json`, jsonData, function (err) {
+        fs.writeFileSync(`URIs/TokenURIs/${i}.json`, jsonData, function (err) {
             if (err) {
                 console.log(err)
             }
