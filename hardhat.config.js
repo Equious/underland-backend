@@ -50,7 +50,7 @@ module.exports = {
             chainId: 5,
             blockConfirmations: 6,
         },
-        goerli: {
+        mainnet: {
             url: MAINNET_RPC_URL,
             accounts: [PRIVATE_KEY],
             chainId: 1,
